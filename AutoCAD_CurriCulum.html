@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoCAD 證照班：前五週總複習課綱</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1e1e1e;
+        color: #e0e0e0;
+        margin: 0;
+        display: flex;
+        height: 100vh;
+    }
+    .sidebar {
+        width: 280px;
+        background-color: #252526;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+        overflow-y: auto;
+    }
+    .sidebar h2 {
+        color: #ffffff;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #007acc;
+        padding-bottom: 10px;
+    }
+    .menu-item {
+        background-color: #333333;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-weight: bold;
+        color: #cccccc;
+    }
+    .menu-item:hover {
+        background-color: #444444;
+    }
+    .menu-item.active {
+        background-color: #007acc;
+        color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0,122,204,0.4);
+    }
+    .main-content {
+        flex: 1;
+        padding: 40px;
+        overflow-y: auto;
+        background-color: #1e1e1e;
+    }
+    .card {
+        background-color: #2d2d30;
+        border-radius: 10px;
+        padding: 30px;
+        display: none;
+        animation: fadeIn 0.4s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .card.active {
+        display: block;
+    }
+    .card h1 {
+        color: #ffffff;
+        margin-top: 0;
+        font-size: 2rem;
+    }
+    h3 {
+        color: #4fc1ff;
+        margin-top: 30px;
+        border-bottom: 1px solid #444;
+        padding-bottom: 8px;
+    }
+    ul {
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+    .cmd-badge {
+        display: inline-block;
+        background-color: #005691;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 4px;
+        margin: 5px 5px 5px 0;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    .tip-box {
+        background-color: #3a3a20;
+        border-left: 5px solid #d7ba7d;
+        padding: 20px;
+        margin-top: 30px;
+        border-radius: 0 6px 6px 0;
+    }
+    .tip-box h4 {
+        margin: 0 0 10px 0;
+        color: #d7ba7d;
+        font-size: 1.2rem;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>章節導覽</h2>
+    <div class="menu-item active" onclick="showTab('w1')">Week 1-2：環境與基礎繪圖</div>
+    <div class="menu-item" onclick="showTab('w3')">Week 3：修改指令與空間</div>
+    <div class="menu-item" onclick="showTab('w4')">Week 4：文字註解與標註</div>
+    <div class="menu-item" onclick="showTab('w5')">Week 5：圖塊魔法與統計</div>
+</div>
+
+<div class="main-content">
+    <div id="w1" class="card active">
+        <h1>Week 1-2：環境建置與基礎繪圖</h1>
+        
+        <h3>📌 核心觀念</h3>
+        <ul>
+            <li><b>環境設定：</b> 選項 (OP)、性質面板 (PR)、圖層管理 (LA)。</li>
+            <li><b>滑鼠操作：</b> 滾輪縮放與按住平移，CAD 基本功。</li>
+            <li><b>選取邏輯：</b> 由左向右的「藍框 (包覆才算)」，由右向左的「綠框 (碰到就算)」。</li>
+            <li><b>狀態列輔助：</b> F3 (物件鎖點)、F8 (正交模式)、F12 (動態輸入)。</li>
+        </ul>
+
+        <h3>🛠️ 重點指令</h3>
+        <div>
+            <span class="cmd-badge">L (直線)</span>
+            <span class="cmd-badge">PL (聚合線)</span>
+            <span class="cmd-badge">REC (矩形)</span>
+            <span class="cmd-badge">C (圓形)</span>
+            <span class="cmd-badge">ARC (弧)</span>
+            <span class="cmd-badge">POL (多邊形)</span>
+            <span class="cmd-badge">Ctrl+9 (切換指令行)</span>
+        </div>
+
+        <div class="tip-box">
+            <h4>💡 老師的 ACU 實戰小撇步</h4>
+            <p>畫家具或空間輪廓時，請盡量使用 <b>PL (聚合線)</b> 或 <b>REC (矩形)</b> 畫成一體成型的封閉圖形，這會是你未來計算面積與套用修改指令的關鍵基礎！</p>
+        </div>
+    </div>
+
+    <div id="w3" class="card">
+        <h1>Week 3：修改指令與空間建構</h1>
+        
+        <h3>📌 核心觀念</h3>
+        <ul>
+            <li><b>基準點 (Base Point)：</b> 移動或複製物件時，一定要先決定「抓哪裡」當作施力點。</li>
+            <li><b>修剪與延伸的雙生關係：</b> 執行指令時按住 <code>Shift</code> 鍵，可瞬間切換這兩個功能。</li>
+            <li><b>長出牆厚：</b> 利用偏移 (O) 快速精準地畫出建築牆壁厚度。</li>
+        </ul>
+
+        <h3>🛠️ 重點指令</h3>
+        <div>
+            <span class="cmd-badge">M (移動)</span>
+            <span class="cmd-badge">CO (複製)</span>
+            <span class="cmd-badge">RO (旋轉)</span>
+            <span class="cmd-badge">O (偏移)</span>
+            <span class="cmd-badge">MI (鏡射)</span>
+            <span class="cmd-badge">AR (陣列)</span><br><br>
+            <span class="cmd-badge">TR (修剪)</span>
+            <span class="cmd-badge">EX (延伸)</span>
+            <span class="cmd-badge">F (圓角)</span>
+            <span class="cmd-badge">X (分解)</span>
+            <span class="cmd-badge">J (結合)</span>
+            <span class="cmd-badge">H (填充線)</span>
+        </div>
+
+        <div class="tip-box">
+            <h4>💡 老師的 ACU 實戰小撇步</h4>
+            <p>畫完地板或牆壁的填充線 (H) 後，記得選取它並按右鍵，將<b>顯示順序「移到最下方」</b>，才不會把辛苦畫好的家具線條蓋住喔！</p>
+        </div>
+    </div>
+
+    <div id="w4" class="card">
+        <h1>Week 4：文字註解與標註管理</h1>
+        
+        <h3>📌 核心觀念</h3>
+        <ul>
+            <li><b>字體不亂碼：</b> 文字型式 (STYLE) 請務必選用 TrueType 字型 (如微軟正黑體)。</li>
+            <li><b>拯救微小標註：</b> 進入標註型式管理員 (D)，修改「填入」標籤中的「使用整體比例」。</li>
+            <li><b>室內設計法規常識：</b> 無障礙出入口淨寬至少 80cm，無障礙坡道淨寬 90cm (坡度 1/12)。</li>
+        </ul>
+
+        <h3>🛠️ 重點指令</h3>
+        <div>
+            <span class="cmd-badge">STYLE (文字型式)</span>
+            <span class="cmd-badge">DT (單行文字)</span>
+            <span class="cmd-badge">MT / T (多行文字)</span>
+            <span class="cmd-badge">FIND (尋找與取代)</span><br><br>
+            <span class="cmd-badge">DIM (尺寸標註)</span>
+            <span class="cmd-badge">DIMSTYLE / D (標註型式)</span>
+            <span class="cmd-badge">MLEADER (多重引線)</span>
+        </div>
+
+        <div class="tip-box">
+            <h4>💡 老師的 ACU 實戰小撇步</h4>
+            <p>業界強烈推薦使用 <b>MLEADER (多重引線)</b> 來代替普通的直線加文字。因為引線會把箭頭和文字綁定在一起，未來移動修改時才不會散開！</p>
+        </div>
+    </div>
+
+    <div id="w5" class="card">
+        <h1>Week 5：圖塊魔法與資料統計</h1>
+        
+        <h3>📌 核心觀念</h3>
+        <ul>
+            <li><b>圖塊基準點：</b> 建立圖塊時，絕對不能忘記點擊「點選點」，否則圖塊會飛回 (0,0) 原點。</li>
+            <li><b>0層的變色龍特性：</b> 製作圖塊的「原始線條」必須畫在 0 號圖層，插入圖面後才能正確繼承其他圖層的顏色。</li>
+            <li><b>動態圖塊應用：</b> 利用對齊 (貼牆)、可見性 (切換款式)、翻轉 (左右開門) 提升佈置效率。</li>
+        </ul>
+
+        <h3>🛠️ 重點指令</h3>
+        <div>
+            <span class="cmd-badge">B (建立圖塊)</span>
+            <span class="cmd-badge">I (插入圖塊)</span>
+            <span class="cmd-badge">BEDIT (圖塊編輯器)</span>
+            <span class="cmd-badge">WBLOCK (寫出圖塊)</span><br><br>
+            <span class="cmd-badge">ADC (設計中心)</span>
+            <span class="cmd-badge">COUNT (計數清單)</span>
+            <span class="cmd-badge">QSELECT (快速選取)</span>
+        </div>
+
+        <div class="tip-box">
+            <h4>💡 老師的 ACU 實戰小撇步</h4>
+            <p>利用 <b>COUNT (計數)</b> 面板，可以瞬間清點全圖的家具數量。如果面板出現黃色驚嘆號 ⚠️，代表有圖塊「重疊」了，這是防呆除錯與精準叫料的神器！</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function showTab(tabId) {
+        // 移除所有選單的 active 狀態
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // 隱藏所有卡片
+        document.querySelectorAll('.card').forEach(card => {
+            card.classList.remove('active');
+        });
+        
+        // 將被點擊的選單設為 active (透過事件尋找來源)
+        event.target.classList.add('active');
+        
+        // 顯示對應的卡片
+        document.getElementById(tabId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
