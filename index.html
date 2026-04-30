@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoCAD 證照班：前五週總複習課綱</title>
+<title>AutoCAD 證照班：前六週總複習課綱</title>
 <style>
     * {
         box-sizing: border-box;
@@ -168,9 +168,12 @@
     <div class="menu-item" onclick="showTab('w3')">Week 3：修改指令與空間</div>
     <div class="menu-item" onclick="showTab('w4')">Week 4：文字註解與標註</div>
     <div class="menu-item" onclick="showTab('w5')">Week 5：圖塊魔法與統計</div>
+    <!-- 新增 Week 6 選單 -->
+    <div class="menu-item" onclick="showTab('w6')">Week 6：圖層管理與性質</div>
 </div>
 
 <div class="main-content">
+    <!-- Week 1-2 -->
     <div id="w1" class="card active">
         <h1>Week 1-2：環境建置與基礎繪圖</h1>
         
@@ -199,6 +202,7 @@
         </div>
     </div>
 
+    <!-- Week 3 -->
     <div id="w3" class="card">
         <h1>Week 3：修改指令與空間建構</h1>
         
@@ -231,6 +235,7 @@
         </div>
     </div>
 
+    <!-- Week 4 -->
     <div id="w4" class="card">
         <h1>Week 4：文字註解與標註管理</h1>
         
@@ -258,6 +263,7 @@
         </div>
     </div>
 
+    <!-- Week 5 -->
     <div id="w5" class="card">
         <h1>Week 5：圖塊魔法與資料統計</h1>
         
@@ -282,6 +288,33 @@
         <div class="tip-box">
             <h4>💡 老師的 ACU 實戰小撇步</h4>
             <p>利用 <b>COUNT (計數)</b> 面板，可以瞬間清點全圖的家具數量。如果面板出現黃色驚嘆號 ⚠️，代表有圖塊「重疊」了，這是防呆除錯與精準叫料的神器！</p>
+        </div>
+    </div>
+
+    <!-- 新增 Week 6 -->
+    <div id="w6" class="card">
+        <h1>Week 6：圖層管理與物件性質</h1>
+        
+        <h3>📌 核心觀念</h3>
+        <ul>
+            <li><b>開關燈 vs 搬倉庫：</b> 關閉燈泡就像「關燈」，東西還在（如果按 Ctrl+A 全選會被誤刪）；凍結圖層就像「搬到倉庫封存」，完全不佔系統資源且安全。</li>
+            <li><b>校規 vs 班服特權：</b> 圖層管理員是「校規（大家穿校服）」，性質面板是「特權（班服）」。遇到單一沙發要換色，或虛線間距太小要調比例時，才使用性質面板單獨調整。</li>
+            <li><b>綠色勾勾與防呆：</b> 綠勾代表「目前的作圖圖層」。建議養成好習慣，選取物件後透過「性質面板」來換圖層，以避免沒選物件時誤觸上方下拉選單，導致綠勾跑掉。</li>
+            <li><b>刪不掉的圖層：</b> 0 號圖層、Defpoints、打著綠色勾勾的目前圖層，以及裡面還有物件的圖層（包含隱藏物件，找不到時可用 <b>QSE 快速選取</b> 抓出來）。</li>
+        </ul>
+
+        <h3>🛠️ 重點指令</h3>
+        <div>
+            <span class="cmd-badge">LA (圖層管理)</span>
+            <span class="cmd-badge">PR / Ctrl+1 (性質面板)</span>
+            <span class="cmd-badge">LAYWALK (圖層漫遊)</span>
+            <span class="cmd-badge">LAYISO (圖層隔離)</span>
+            <span class="cmd-badge">QSELECT / QSE (快速選取)</span>
+        </div>
+
+        <div class="tip-box">
+            <h4>💡 老師的 ACU 實戰小撇步</h4>
+            <p>在使用 <b>LAYWALK (圖層漫遊)</b> 檢查圖面時，關閉視窗前一定要確認左下角的<b>「結束時還原」</b>有打勾！另外，標註時產生的 <b>Defpoints</b> 圖層擁有「絕對印不出來」的隱藏特性，千萬別把一般圖形畫在上面喔！</p>
         </div>
     </div>
 
